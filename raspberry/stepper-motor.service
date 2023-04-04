@@ -1,0 +1,15 @@
+# sudo nano /etc/systemd/system/stepper-motor.service
+[Unit]
+Description=display gauge service
+DefaultDependencies=false
+
+[Service]
+User=pi
+Type=simple
+KillMode=process
+Restart=on-failure
+RestartSec=10s
+ExecStart=/usr/bin/python3 /home/pi/2022_19/stepper.py
+
+[Install]
+WantedBy=sysinit.target

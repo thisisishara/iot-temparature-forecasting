@@ -1,0 +1,8 @@
+# Extend the base MQTT docker image
+FROM eclipse-mosquitto:2.0.14
+#FROM eclipse-mosquitto:1.6.15
+
+# Copying MQTT basic configs
+COPY ./mosquitto/config/mosquitto.conf /mosquitto/config/mosquitto.conf
+
+EXPOSE 1883

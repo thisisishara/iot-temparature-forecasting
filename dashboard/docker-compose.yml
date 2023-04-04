@@ -1,0 +1,28 @@
+version: '3.0'
+
+networks:
+  sliit_raspberry_pi_network:
+    external: true
+
+services:
+  nodered_container:
+    image: dinushitj/iotbda-node-red-2022-19:1.0.0
+    container_name: nodered_container
+    restart: always
+    networks:
+      - sliit_raspberry_pi_network
+    ports:
+      - "5051:1880"
+    expose: [1880]
+    links:
+      - pypredictor_container
+
+  pypredictor_container:
+    image: thisisishara/iotbda-predictor-2022-19:1.0.0
+    container_name: pypredictor_container
+    restart: always
+    networks:
+      - sliit_raspberry_pi_network
+    ports:
+      - "5052:1881"
+    expose: [1881]

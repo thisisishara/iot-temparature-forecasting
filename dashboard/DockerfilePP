@@ -1,0 +1,35 @@
+# Extend the base python 3.8 docker image
+FROM python:3.8
+
+USER root
+RUN apt-get --allow-releaseinfo-change update\
+    && apt-get -y install software-properties-common\
+    && apt-get --allow-releaseinfo-change update\
+    && pip3 install --upgrade setuptools pip \
+    && pip3 install flask==2.0.3 \
+    && pip3 install paho-mqtt==1.6.1 \
+    && pip3 install pyspectator==1.2.2 \
+    && pip3 install APScheduler==3.9.1 \
+    && pip3 install joblib==1.1.0 \
+    && pip3 install numpy==1.22.3 \
+    && pip3 install statsmodels==0.13.2 \
+    && pip3 install pandas==1.4.1 \
+    && pip3 install matplotlib==3.5.1 \
+    && pip3 install pmdarima==1.8.5
+
+WORKDIR /app
+
+COPY ./pypredict_data/datasets/temp.csv /app/pypredict_data/datasets/temp.csv
+COPY ./pypredict_data/datasets/temp_cleaned.csv /app/pypredict_data/datasets/temp_cleaned.csv
+COPY ./pypredict_data/datasets/temp_cleaned.csv /app/pypredict_data/datasets/temp_cleaned_latest.csv
+COPY ./pypredict_data/models/20130901_000000.pkl /app/pypredict_data/models/20130901_000000.pkl
+COPY ./pypredict_data/temp_stream/temp_stream.csv /app/pypredict_data/temp_stream/temp_stream.csv
+COPY ./templates /app/templates
+COPY ./pypredictor.py /app/pypredictor.py
+COPY ./pyarima.py /app/pyarima.py
+COPY ./pystream_handler.py /app/pystream_handler.py
+
+ENTRYPOINT [ "python" ]
+CMD [ "pypredictor.py" ]
+
+EXPOSE 1881

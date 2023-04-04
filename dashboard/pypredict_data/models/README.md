@@ -1,0 +1,1 @@
+Keep this directory to store newly trained ARIMA models

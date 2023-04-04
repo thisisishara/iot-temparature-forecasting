@@ -1,0 +1,1 @@
+Keep this directory to store datasets required to train ARIMA models

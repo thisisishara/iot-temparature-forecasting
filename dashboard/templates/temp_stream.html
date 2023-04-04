@@ -1,0 +1,12 @@
+<p id="clock">Current Temperature from Raspberry Pi</p>
+
+<script>
+    const temp = document.getElementById("clock");
+
+    setInterval(() => {
+        fetch("{{ url_for('temp_stream') }}")
+        .then(response => {
+                response.text().then(t => {temp.innerHTML = t})
+            });
+        }, 1000);
+</script>

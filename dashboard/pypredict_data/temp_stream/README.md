@@ -1,0 +1,1 @@
+Keep this directory to store incoming real-time temperature readings

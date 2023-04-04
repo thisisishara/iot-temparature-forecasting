@@ -1,0 +1,7 @@
+# Extend the latest node-red docker image
+FROM nodered/node-red:latest
+
+# Copying data
+COPY ./node_red_data /data
+
+EXPOSE 1880

@@ -1,0 +1,678 @@
+[
+    {
+        "id": "dc61edd82cbd36ae",
+        "type": "tab",
+        "label": "IOTBDA dashboard",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ee04f4da2cc97789",
+        "type": "mqtt-broker",
+        "name": "DIAN",
+        "broker": "broker.hivemq.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "5",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "99f18238cbb5331a",
+        "type": "ui_group",
+        "name": "Gauge",
+        "tab": "86d8fb9123f3889f",
+        "order": 1,
+        "disp": false,
+        "width": 11,
+        "collapse": false
+    },
+    {
+        "id": "86d8fb9123f3889f",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "c683d5433412c7da",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-dark",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#252528",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#097479",
+                    "value": "#252528",
+                    "edited": true
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#252528",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#4a4a50",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#555555",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#eeeeee",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#252528",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "21a89318e4c7fbd6",
+        "type": "mqtt-broker",
+        "name": "local-mqtt",
+        "broker": "mosquitto_container",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "67d8bc47599a6162",
+        "type": "ui_group",
+        "name": "Real Time and Prediction Graphs",
+        "tab": "86d8fb9123f3889f",
+        "order": 2,
+        "disp": false,
+        "width": 13,
+        "collapse": false
+    },
+    {
+        "id": "8e70408f52d3c386",
+        "type": "ui_spacer",
+        "z": "dc61edd82cbd36ae",
+        "name": "spacer",
+        "group": "99f18238cbb5331a",
+        "order": 3,
+        "width": 11,
+        "height": 1
+    },
+    {
+        "id": "833ca1a9f96d4613",
+        "type": "mqtt in",
+        "z": "dc61edd82cbd36ae",
+        "name": "raspberry pi temp subscriber",
+        "topic": "IOTBDA@SLIIT202219/temp",
+        "qos": "1",
+        "datatype": "auto",
+        "broker": "ee04f4da2cc97789",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 140,
+        "wires": [
+            [
+                "04742ab62d5d0578",
+                "7a7c0c3eb45cdc07"
+            ]
+        ]
+    },
+    {
+        "id": "b3163f3a53e01034",
+        "type": "ui_text",
+        "z": "dc61edd82cbd36ae",
+        "group": "99f18238cbb5331a",
+        "order": 2,
+        "width": 11,
+        "height": 1,
+        "name": "Gauge Label",
+        "label": "Status",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "x": 970,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "93ca3646309a855f",
+        "type": "ui_gauge",
+        "z": "dc61edd82cbd36ae",
+        "name": "Temperature Gauge",
+        "group": "99f18238cbb5331a",
+        "order": 1,
+        "width": 11,
+        "height": 6,
+        "gtype": "gage",
+        "title": "Temperature Gauge",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "40",
+        "colors": [
+            "#07a9df",
+            "#ffd500",
+            "#fb3737"
+        ],
+        "seg1": "semi-cold",
+        "seg2": "semi-hot",
+        "x": 730,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "04742ab62d5d0578",
+        "type": "function",
+        "z": "dc61edd82cbd36ae",
+        "name": "temp function",
+        "func": "msgval = JSON.parse(msg[\"payload\"])\nreturn { payload: msgval.temp };",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 140,
+        "wires": [
+            [
+                "93ca3646309a855f",
+                "be138463a359b075",
+                "8c45033aad35caa4",
+                "3447c57834a6aa31",
+                "bbb7c5c0e95f1b13"
+            ]
+        ]
+    },
+    {
+        "id": "6d79940543e72e4a",
+        "type": "ui_chart",
+        "z": "dc61edd82cbd36ae",
+        "name": "Temperature Prediction Chart",
+        "group": "67d8bc47599a6162",
+        "order": 2,
+        "width": 13,
+        "height": 7,
+        "label": "Temperature Prediction Chart",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "Y-M-D",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": true,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#b31e26",
+            "#e9afb5",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 960,
+        "y": 840,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3447c57834a6aa31",
+        "type": "ui_chart",
+        "z": "dc61edd82cbd36ae",
+        "name": "Real Time Temperature Chart",
+        "group": "67d8bc47599a6162",
+        "order": 1,
+        "width": 13,
+        "height": 7,
+        "label": "Real Time Temperature Chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": true,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#a28d01",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 760,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "be138463a359b075",
+        "type": "function",
+        "z": "dc61edd82cbd36ae",
+        "name": "conditions check ",
+        "func": "msgval = msg[\"payload\"]\n\nif (msgval < \"20\") {\n    return { payload: \"Cool\"};\n} else if (msgval >= \"20\" && msgval <= \"30\") {\n    return { payload: \"Warm\"};\n} else {\n    return { payload: \"Hot\"};\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 730,
+        "y": 140,
+        "wires": [
+            [
+                "b3163f3a53e01034"
+            ]
+        ]
+    },
+    {
+        "id": "7a7c0c3eb45cdc07",
+        "type": "function",
+        "z": "dc61edd82cbd36ae",
+        "name": "humidity function",
+        "func": "msgval = JSON.parse(msg[\"payload\"])\nreturn { payload: msgval.humidity };",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 270,
+        "y": 520,
+        "wires": [
+            [
+                "cc0910dd3c6088e5",
+                "a74d56592bd57e72"
+            ]
+        ]
+    },
+    {
+        "id": "cc0910dd3c6088e5",
+        "type": "ui_gauge",
+        "z": "dc61edd82cbd36ae",
+        "name": "Humidity Gauge",
+        "group": "99f18238cbb5331a",
+        "order": 4,
+        "width": 11,
+        "height": 6,
+        "gtype": "gage",
+        "title": "Relative Humidity Gauge",
+        "label": "Φ",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 480,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "59db5ba2836028a4",
+        "type": "inject",
+        "z": "dc61edd82cbd36ae",
+        "name": "API request trigger",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "30",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 800,
+        "wires": [
+            [
+                "4afd9956bb0bc133",
+                "a630a7288e6a246c"
+            ]
+        ]
+    },
+    {
+        "id": "8c45033aad35caa4",
+        "type": "debug",
+        "z": "dc61edd82cbd36ae",
+        "name": "Temperature Debug Node",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 750,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "4afd9956bb0bc133",
+        "type": "http request",
+        "z": "dc61edd82cbd36ae",
+        "name": "API Post request",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "pypredictor_container:1881/update_and_predict",
+        "tls": "",
+        "persist": true,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 430,
+        "y": 800,
+        "wires": [
+            [
+                "c9a37ffde5fef011",
+                "4aacb295cedccd33"
+            ]
+        ]
+    },
+    {
+        "id": "1308052a6e5855c1",
+        "type": "debug",
+        "z": "dc61edd82cbd36ae",
+        "name": "Predictions Debug Node",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 950,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "c9a37ffde5fef011",
+        "type": "function",
+        "z": "dc61edd82cbd36ae",
+        "name": "parse series function",
+        "func": "data=JSON.parse(msg.payload)\nreturn {payload: [JSON.parse(data[1].predicted_series)]};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 660,
+        "y": 800,
+        "wires": [
+            [
+                "1308052a6e5855c1",
+                "6d79940543e72e4a"
+            ]
+        ]
+    },
+    {
+        "id": "a74d56592bd57e72",
+        "type": "debug",
+        "z": "dc61edd82cbd36ae",
+        "name": "Humidity Debug Node",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "8788922db6d0db11",
+        "type": "ui_text",
+        "z": "dc61edd82cbd36ae",
+        "group": "67d8bc47599a6162",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "Prediction Status",
+        "label": "Prediction Status",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 990,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "abbfe79f3988db66",
+        "type": "ui_text",
+        "z": "dc61edd82cbd36ae",
+        "group": "99f18238cbb5331a",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "MQTT Status",
+        "label": "MQTT Status",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 890,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "1ae7951c31cdbf12",
+        "type": "inject",
+        "z": "dc61edd82cbd36ae",
+        "name": "Inject Initial status",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Waiting...",
+        "payloadType": "str",
+        "x": 510,
+        "y": 400,
+        "wires": [
+            [
+                "abbfe79f3988db66"
+            ]
+        ]
+    },
+    {
+        "id": "bbb7c5c0e95f1b13",
+        "type": "function",
+        "z": "dc61edd82cbd36ae",
+        "name": "MQTT status function",
+        "func": "return { payload: \"Subscribed.\" };",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 340,
+        "wires": [
+            [
+                "abbfe79f3988db66"
+            ]
+        ]
+    },
+    {
+        "id": "a630a7288e6a246c",
+        "type": "function",
+        "z": "dc61edd82cbd36ae",
+        "name": "prediction status function (Request)",
+        "func": "return { payload: \"Requesting...\" };",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 700,
+        "wires": [
+            [
+                "8788922db6d0db11"
+            ]
+        ]
+    },
+    {
+        "id": "4aacb295cedccd33",
+        "type": "function",
+        "z": "dc61edd82cbd36ae",
+        "name": "prediction status function (Connecting)",
+        "func": "try {\n    data=JSON.parse(msg.payload);\n    return { payload: \"Up-to-date.\" };\n} catch(e) {\n    return { payload: \"Waiting...\" };\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 740,
+        "wires": [
+            [
+                "8788922db6d0db11"
+            ]
+        ]
+    }
+]

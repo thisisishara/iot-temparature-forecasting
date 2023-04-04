@@ -1,0 +1,16 @@
+# sudo nano /etc/systemd/system/publisher.service
+[Unit]
+Description=publisher service
+Wants=network-online.target
+DefaultDependencies=false
+
+[Service]
+User=pi
+Type=simple
+KillMode=process
+Restart=on-failure
+RestartSec=10s
+ExecStart=/usr/bin/python3 /home/pi/2022_19/publisher.py
+
+[Install]
+WantedBy=sysinit.target
